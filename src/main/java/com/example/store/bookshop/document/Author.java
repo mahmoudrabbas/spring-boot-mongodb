@@ -12,10 +12,10 @@ public class Author {
     @Id
     private String id;
     
-    @NotNull(message = "Name is Required")
+    @NotNull(message = "{validation.constraint.name}")
     private String authorName;
 
-    @NotBlank(message = "Job is Required")
+    @NotBlank(message = "{validation.constraint.job}")
     private String job;
 
     @CreatedBy
@@ -30,7 +30,7 @@ public class Author {
     @LastModifiedDate
     private String LastModifiedDate;
 
-    @Email(message = "Invalid Email")
+    @Email(message = "{validation.constraint.email}")
     @NotBlank(message = "Email is required")
     @Indexed(unique = true)
     private String email;

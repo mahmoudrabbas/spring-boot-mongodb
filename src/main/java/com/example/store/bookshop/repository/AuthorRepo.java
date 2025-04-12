@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AuthorRepo extends MongoRepository<Author, String> {
 
-    @Query(value = "{email:'?0'}", fields = "{'authorName':1}")
+    @Query(value = "{email:'?0'}}")   // fields = "{'authorName':1}")
     Author findByEmail(String email);
 }
