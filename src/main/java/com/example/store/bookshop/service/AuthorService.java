@@ -1,6 +1,6 @@
 package com.example.store.bookshop.service;
 
-import com.example.store.bookshop.document.Author;
+import com.example.store.bookshop.model.Author;
 import com.example.store.bookshop.errors.BusinessException;
 import com.example.store.bookshop.errors.DocumentNotFound;
 import com.example.store.bookshop.repository.AuthorRepo;
@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,7 +53,9 @@ public class AuthorService {
     // insert
     public Author insert(Author doc){
         if(getByEmail(doc.getEmail()) != null) throw new BusinessException("Email is Already in use");
-        return authorRepo.insert(doc);
+        Author saved = authorRepo.insert(doc);
+        logAuthorDetailsAsync(saved);
+        return saved;
     }
 
     // update
@@ -77,6 +80,20 @@ public class AuthorService {
         return 1;
     }
 
+
+    @Async
+    public void logAuthorDetailsAsync(Author author) {
+        System.out.println("Logging author in thread: " + Thread.currentThread().getName());
+        System.out.println("Author: " + author.getAuthorName() + ", Email: " + author.getEmail());
+
+        // consider we are sending an email here so it would take tine
+        try {
+            Thread.sleep(3000);
+            System.out.println("Done logging for: " + author.getAuthorName());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

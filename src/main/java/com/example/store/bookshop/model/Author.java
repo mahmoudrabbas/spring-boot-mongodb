@@ -1,4 +1,4 @@
-package com.example.store.bookshop.document;
+package com.example.store.bookshop.model;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -35,6 +35,16 @@ public class Author {
     @Indexed(unique = true)
     private String email;
 
+
+    public Author() {
+    }
+
+    public Author(String authorName, String job, String email) {
+        this.authorName = authorName;
+        this.job = job;
+        this.email = email;
+    }
+
     public String getAuthorName() {
         return authorName;
     }
@@ -54,6 +64,8 @@ public class Author {
     public String getId() {
         return id;
     }
+
+
 
     public void setId(String id) {
         this.id = id;

@@ -1,4 +1,4 @@
-package com.example.store.bookshop.service.scheduling;
+package com.example.store.bookshop.scheduling;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

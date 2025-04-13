@@ -1,6 +1,5 @@
 package com.example.store.bookshop.config;
 
-import com.example.store.bookshop.document.Author;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 

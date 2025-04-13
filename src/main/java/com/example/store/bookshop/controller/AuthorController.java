@@ -1,7 +1,7 @@
 package com.example.store.bookshop.controller;
 
 
-import com.example.store.bookshop.document.Author;
+import com.example.store.bookshop.model.Author;
 import com.example.store.bookshop.errors.CustomErrorResponse;
 import com.example.store.bookshop.service.AuthorService;
 import jakarta.validation.Valid;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;

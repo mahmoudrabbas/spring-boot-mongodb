@@ -1,6 +1,6 @@
 package com.example.store.bookshop.repository;
 
-import com.example.store.bookshop.document.Author;
+import com.example.store.bookshop.model.Author;
 import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
